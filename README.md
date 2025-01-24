@@ -2,13 +2,13 @@
 
 用来在浏览器中控制 Android 设备。
 
-https://hub.docker.com/r/scavin/ws-scrcpy/  
-https://github.com/scavin/ws-scrcpy-docker/
+https://hub.docker.com/r/ghostry/ws-scrcpy
+https://github.com/easy-docker/ws-scrcpy/
 
 ## 使用
 
 ```
-docker run --name ws-scrcpy -d -p 8000:8000 scavin/ws-scrcpy
+docker run --name ws-scrcpy -d -p 8000:8000 ghostry/ws-scrcpy
 docker exec ws-scrcpy adb connect android.device.ip:5555
 ```
 
@@ -26,7 +26,4 @@ docker exec ws-scrcpy adb connect android.device.ip:5555
 
 ## 参考链接
 
-* https://github.com/Genymobile/scrcpy
-* https://github.com/NetrisTV/ws-scrcpy
-* https://meta.appinn.net/t/topic/33828
-* https://www.appinn.com/scrcpy-remote/  //用 iPhone 控制 Android
+* https://github.com/scavin/ws-scrcpy-docker/
