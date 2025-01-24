@@ -20,6 +20,7 @@ jobs:
 
           # Use Docker `latest` tag convention
           [ "$VERSION" == "master" ] && VERSION=latest
+          [ "$VERSION" == "main" ] && VERSION=latest
 
           repository=${{ github.repository }}
           IMAGE_NAME=${{ github.actor }}/${repository##*/}:$VERSION
