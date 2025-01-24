@@ -8,7 +8,7 @@ on:
     types: [published]
   workflow_dispatch:
   schedule:
-    - cron: "0 12 * * 1"
+    - cron: "0 12 1 * *"
 
 jobs:
   push_to_registry:
