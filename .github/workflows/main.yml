@@ -23,13 +23,16 @@ jobs:
           # Use Docker `latest` tag convention
           [ "$VERSION" == "master" ] && VERSION=latest
           [ "$VERSION" == "main" ] && VERSION=latest
-
+          # 生成日期标签
+          DATE_TAG=$(date +%Y%m%d)
           repository=${{ github.repository }}
           IMAGE_NAME=${{ github.actor }}/${repository##*/}:$VERSION
+          DATE_IMAGE_NAME=${{ github.actor }}/${repository##*/}:$DATE_TAG
 
           echo IMAGE_NAME=$IMAGE_NAME
 
           echo "IMAGE_NAME=$IMAGE_NAME" >> $GITHUB_ENV
+          echo "DATE_IMAGE_NAME=$DATE_IMAGE_NAME" >> $GITHUB_ENV
       - name: Check out the repo
         uses: actions/checkout@v2
       - name: Log in to Docker Hub
@@ -41,4 +44,6 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: ${{ env.IMAGE_NAME }}
+          tags: |
+            ${{ env.IMAGE_NAME }}
+            ${{ env.DATE_IMAGE_NAME }}
